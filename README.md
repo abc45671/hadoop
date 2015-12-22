@@ -1,0 +1,2 @@
+# hadoop
+hadoop all test
