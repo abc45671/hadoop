@@ -28,14 +28,14 @@ public class TitanicPro2 {
         job.setReducerClass(Titanic.pro2.reduce.Reduce.class);
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
-        String input = "hdfs://antslab4:9000/user/hadoop/titanic/TitanicData";
+        String input = "/user/hadoop/titanic/TitanicData";
         FileSystem hdfs = FileSystem.get(conf);
         Path findf = new Path(input);
         boolean isExists = hdfs.exists(findf);
         if (isExists == true) {
             FileInputFormat.addInputPath(job, new Path(input));
         }
-        String output = "hdfs://antslab4:9000/user/hadoop/titanic/pro2_out";
+        String output = "/user/hadoop/titanic/pro2_out";
         FileSystem fs = FileSystem.get(conf);
         fs.delete(new Path(output), true);
         FileOutputFormat.setOutputPath(job, new Path(output));
